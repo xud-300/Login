@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <title>Intix Map</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tokml@0.4.0/tokml.min.js"></script>
+    <script src="{% static 'js/leaflet.draw.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</body>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="fullscreen">
+        <img id="fullscreen-img" src="" />
+    </div>
+    <script>
+        var logoutUrl = "{% url 'logout' %}";
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            document.write('<input type="file" id="upload" accept=".kml" />');
+        }
+    </script>
+    <script src="{% static 'js/panesConfig.js' %}"></script>
+    <script src="{% static 'js/wfs_layer_zone.js' %}"></script>
+    <script src="{% static 'js/styles_zone.js' %}"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/draw_to_kml.js' %}"></script>
+    <script src="{% static 'js/upload_kml.js' %}"></script>
+</body>
+</html>
